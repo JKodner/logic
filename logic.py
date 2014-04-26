@@ -143,3 +143,20 @@ def nor(x, y, bi=False):
 				raise ValueError("Invalid value for binary calculation.")
 	else:
 		raise ValueError("Invalid value for 'bi' parameter.")
+
+def negate(x):
+	"""Negates the given number.
+
+	Examples:
+	negate(1) --> 0
+	negate(0) --> 1
+	"""
+	if isinstance(x, int):
+		new = ['0', 'b']
+		x = bin(x)[2:]
+		for i in x:
+			if i == '1':
+				new.append("0")
+			else:
+				new.append("1")
+		return int("".join(new), 2)
